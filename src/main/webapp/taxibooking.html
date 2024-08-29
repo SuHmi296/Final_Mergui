@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+</head>
+<body>
+    <!-- Taxi Booking -->
+<div id="bookingTaxi" class="hidden mt-5 p-5 border border-gray-300 bg-gray-100 flex">
+    <form class="w-72 h-full">
+        <div class="flex mb-5 text-center">
+            <label for="taxiName" class="font-bold mb-1 w-36 border border-gray-300 rounded-md mr-2">Taxi Name:</label>
+            <input type="text" id="taxiName" name="taxiName" placeholder="Enter taxi name" required class="w-full p-2 border border-gray-300 rounded-md">
+        </div>
+        <div class="flex mb-5 text-center">
+            <label for="arrivalDate" class="font-bold mb-1 w-36 border border-gray-300 rounded-md mr-2">Arrival Date (optional):</label>
+            <input type="date" id="arrivalDate" name="arrivalDate" class="w-full p-2 border border-gray-300 rounded-md">
+        </div>
+        <div class="flex mb-5 text-center">
+            <label for="arrivalTime" class="font-bold mb-1 w-36 border border-gray-300 rounded-md mr-2">Arrival Time:</label>
+            <input type="time" id="arrivalTime" name="arrivalTime" class="w-full p-2 border border-gray-300 rounded-md">
+        </div>
+        <div class="flex mb-5 text-center">
+            <label for="phone" class="font-bold mb-1 w-36 border border-gray-300 rounded-md mr-2">Phone no:</label>
+            <input type="text" id="phone" name="phone" placeholder="Enter phone no" required class="w-full p-2 border border-gray-300 rounded-md">
+        </div>
+        <div class="flex mb-5 text-center">
+            <label for="pickupLocation" class="font-bold mb-1 w-36 border border-gray-300 rounded-md mr-2">Pickup Location:</label>
+            <input type="text" id="pickupLocation" name="pickupLocation" placeholder="Enter pickup location" required class="w-full p-2 border border-gray-300 rounded-md">
+        </div>
+        <div class="mb-5">
+            <button type="submit" class="bg-pink-600 text-white py-2 px-3 rounded-md w-full">Find Booking</button>
+        </div>
+    </form>
+    <div class="flex overflow-hidden items-end bg-cover bg-center bg-no-repeat ml-12" style="background-image: url('5.jpg');">
+        <div class="p-5 bg-gray-300 m-2 rounded-xl">
+            <h2 class="m-0">Newsletter</h2>
+            <p>The monthly newsletter offers the best tips and key information about Switzerland as a travel destination, ensuring your perfect holiday.</p>
+            <button id="subscribe" class="bg-pink-600 text-white border-none py-2 rounded-md cursor-pointer mt-2">Subscribe now!</button>
+        </div>
+    </div>
+</div>
+    
+</body>
+</html>

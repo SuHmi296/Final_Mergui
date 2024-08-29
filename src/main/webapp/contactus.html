@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transportation Services</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+<body class="font-sans antialiased bg-gray-100">
+
+    <!-- Header -->
+    <header class="bg-cover bg-center h-64 flex items-center justify-center" style="background-image: url('./image/t7.jpg')">
+        <div class="text-center text-white">
+            <h1 class="text-4xl font-bold">Reliable Transportation Services</h1>
+            <p class="mt-4 max-w-xl mx-auto">Your journey starts with us.</p>
+            <a href="#services" class="mt-6 inline-block bg-red-700 text-white py-2 px-6 rounded">Book Now</a>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-gray-50">
+        <div class="container mx-auto max-w-7xl px-4">
+            <h2 class="text-4xl font-bold text-center text-red-700 mb-12">Our Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow text-center">
+                    <h3 class="text-2xl font-semibold mb-4">City Rides</h3>
+                    <p class="text-gray-600">Quick and reliable rides across the city.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow text-center">
+                    <h3 class="text-2xl font-semibold mb-4">Airport Transfers</h3>
+                    <p class="text-gray-600">Timely pickups and drop-offs at all major airports.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow text-center">
+                    <h3 class="text-2xl font-semibold mb-4">Long Distance</h3>
+                    <p class="text-gray-600">Comfortable long-distance rides at affordable prices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto max-w-7xl px-4">
+            <h2 class="text-4xl font-bold text-center text-red-700 mb-12">About Us</h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto text-center">
+                We are a leading transportation service provider with years of experience in providing top-notch travel solutions.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="container mx-auto max-w-7xl px-4">
+            <h2 class="text-4xl font-bold text-center text-red-700 mb-12">Contact Us</h2>
+            <form class="space-y-6 max-w-lg mx-auto bg-white p-8 rounded-lg shadow">
+                <input type="text" placeholder="Your Name" required class="w-full p-3 border rounded border-gray-300 focus:ring-2 focus:ring-red-700" />
+                <input type="email" placeholder="Your Email" required class="w-full p-3 border rounded border-gray-300 focus:ring-2 focus:ring-red-700" />
+                <textarea placeholder="Your Message" required class="w-full p-3 border rounded border-gray-300 focus:ring-2 focus:ring-red-700 h-32"></textarea>
+                <button type="submit" class="w-full bg-red-700 text-white py-3 rounded">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Google Map Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto max-w-7xl text-center">
+            <h2 class="text-4xl font-bold text-red-700 mb-6">Visit Us at Our Location</h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-10">
+                We are located at the University of Computer Studies, Myeik, Tanintharyi Region, Myanmar. Find us on the map below.
+            </p>
+            <div class="overflow-hidden rounded-xl shadow-2xl">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3895.7786951363196!2d98.69006727483234!3d12.464453687806287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30fbbac4a940b3c5%3A0xfc8423e9db112e26!2sUniversity%20of%20Computer%20Studies%20(Myeik)!5e0!3m2!1sen!2smm!4v1724729610125!5m2!1sen!2smm"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 Transportation Services. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transportation Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="font-sans bg-gray-100">
+<!-- Navbar -->
+<nav id="navContainer"
+class="z-50 flex justify-between items-center p-1 px-20 sticky top-0 bg-white backdrop-blur-md"></nav>
+
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section flex justify-center items-center h-screen bg-cover bg-center backdrop-blur-md"
+        style="background-image: url('./Images/tranBg.jpg');">
+        <div class="bg-white bg-opacity-60 text-white p-8 rounded-lg text-center">
+            <h1 class="text-5xl text-red-700 mb-4">Reliable Transportation Services</h1>
+            <p class="text-2xl text-black mb-6">Your journey starts with us.</p>
+            <button onclick="bookNow()"
+                class="px-6 py-2 text-lg font-bold text-white bg-[#b8162a] rounded-full hover:bg-[#f51628]">Book
+                Now</button>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section py-12 bg-white text-center">
+        <h2 class="text-4xl mb-8 text-[#b8162a]">Our Services</h2>
+        <div class="services-container flex justify-center flex-wrap gap-6">
+            <div
+                class="service-item bg-gray-100 p-6 rounded-lg shadow-md w-72 text-center">
+                <h3 class="text-2xl font-semibold mb-4">City Rides</h3>
+                <p class="text-gray-700">Quick and reliable rides across the city.</p>
+            </div>
+            <div
+                class="service-item bg-gray-100 p-6 rounded-lg shadow-md w-72 text-center">
+                <h3 class="text-2xl font-semibold mb-4">Airport Transfers</h3>
+                <p class="text-gray-700">Timely pickups and drop-offs at all major airports.</p>
+            </div>
+            <div
+                class="service-item bg-gray-100 p-6 rounded-lg shadow-md w-72 text-center">
+                <h3 class="text-2xl font-semibold mb-4">Long Distance</h3>
+                <p class="text-gray-700">Comfortable long-distance rides at affordable prices.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section py-12 bg-[#ebf0f5] text-center">
+        <h2 class="text-4xl mb-8 text-[#b8162a]">About Us</h2>
+        <p class="text-lg text-gray-800 max-w-4xl mx-auto">We are a leading transportation service provider with years of
+            experience in providing top-notch travel solutions.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section py-12 bg-white text-center">
+        <h2 class="text-4xl mb-8 text-[#b8162a]">Contact Us</h2>
+        <form class="contact-form flex flex-col items-center space-y-4">
+            <input type="text" placeholder="Your Name" required
+                class="w-full max-w-md p-3 border border-gray-300 rounded-lg">
+            <input type="email" placeholder="Your Email" required
+                class="w-full max-w-md p-3 border border-gray-300 rounded-lg">
+            <textarea placeholder="Your Message" required
+                class="w-full max-w-md p-3 border border-gray-300 rounded-lg"></textarea>
+            <button type="submit"
+                class="px-6 py-2 text-lg font-bold text-white bg-[#b8162a] rounded-full hover:bg-[#2e1319]">Send
+                Message</button>
+        </form>
+    </section>
+
+    	<!--footer-->
+	<footer id="footerContainer"
+    class="flex flex-col items-center justify-center space-y-10 w-s4/5 max-w-7xl hover:bg-[#fafafa] hover:text-red-700 mx-auto"></footer>
+
+<script src="./innerHtmlInserter.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="2.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

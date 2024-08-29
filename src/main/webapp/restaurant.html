@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant Home</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="font-sans antialiased">
+    <!-- Navbar -->
+    <nav
+      id="navContainer"
+      class="z-50 flex justify-between items-center p-1 px-20 sticky top-0 bg-white backdrop-blur-md"
+    ></nav>
+
+    <section
+      id="home"
+      class="hero relative h-screen flex items-center justify-center bg-cover bg-center"
+      style="background-image: url('./Images/food.jpg')"
+    >
+      <div class="absolute inset-0 bg-black opacity-50"></div>
+      <div class="relative text-center text-white px-4">
+        <h1
+          class="text-4xl md:text-6xl font-extrabold text-white mb-6 bg-gradient-to-r from-red-500 to-yellow-500 bg-clip-text text-transparent hover:text-red-600 drop-shadow-lg leading-tight"
+        >
+          Welcome to Goody Cafe
+        </h1>
+
+        <p class="text-lg md:text-2xl mb-6">Delicious food, cozy atmosphere.</p>
+        <a
+          href="#menu"
+          class="inline-block bg-red-700 hover:bg-red-600 text-white py-2 px-6 rounded-lg text-lg font-semibold shadow-md transition-transform transform hover:scale-105"
+        >
+          Explore Menu
+        </a>
+      </div>
+    </section>
+
+    <section id="menu" class="menu-section py-20 bg-red-700 p-4 my-10">
+      <div class="container mx-auto">
+        <h2 class="text-4xl text-white font-bold text-center mb-8">Our Menu</h2>
+        <div class="menu-container flex overflow-x-auto space-x-10 p-10 m-4">
+          <!-- Menu Items -->
+          <div class="menu-item flex-shrink-0 w-48 text-center">
+            <img
+              src="./Images/food.jpg"
+              alt="Dish 1"
+              class="w-full h-auto rounded-lg"
+            />
+            <h3 class="mt-4 text-xl text-white font-semibold">Dish 1</h3>
+            <p class="mt-2 text-gray-200">Delicious and fresh.</p>
+          </div>
+          <div class="menu-item flex-shrink-0 w-48 text-center">
+            <img
+              src="./Images/food.jpg"
+              alt="Dish 2"
+              class="w-full h-auto rounded-lg"
+            />
+            <h3 class="mt-4 text-xl text-white font-semibold">Dish 2</h3>
+            <p class="mt-2 text-gray-200">Delicious and fresh.</p>
+          </div>
+          <div class="menu-item flex-shrink-0 w-48 text-center">
+            <img
+              src="./Images/food.jpg"
+              alt="Dish 3"
+              class="w-full h-auto rounded-lg"
+            />
+            <h3 class="mt-4 text-xl text-white font-semibold">Dish 3</h3>
+            <p class="mt-2 text-gray-200">Delicious and fresh.</p>
+          </div>
+          <div class="menu-item flex-shrink-0 w-48 text-center">
+            <img
+              src="./Images/food.jpg"
+              alt="Dish 1"
+              class="w-full h-auto rounded-lg"
+            />
+            <h3 class="mt-4 text-xl text-white font-semibold">Dish 1</h3>
+            <p class="mt-2 text-gray-200">Delicious and fresh.</p>
+          </div>
+          <div class="menu-item flex-shrink-0 w-48 text-center">
+            <img
+              src="./Images/food.jpg"
+              alt="Dish 2"
+              class="w-full h-auto rounded-lg"
+            />
+            <h3 class="mt-4 text-xl text-white font-semibold">Dish 2</h3>
+            <p class="mt-2 text-gray-200">Delicious and fresh.</p>
+          </div>
+          <div class="menu-item flex-shrink-0 w-48 text-center">
+            <img
+              src="./Images/food.jpg"
+              alt="Dish 3"
+              class="w-full h-auto rounded-lg"
+            />
+            <h3 class="mt-4 text-xl text-white font-semibold">Dish 3</h3>
+            <p class="mt-2 text-gray-200">Delicious and fresh.</p>
+          </div>
+          <div class="menu-item flex-shrink-0 w-48 text-center">
+            <img
+              src="./Images/food.jpg"
+              alt="Dish 1"
+              class="w-full h-auto rounded-lg"
+            />
+            <h3 class="mt-4 text-xl text-white font-semibold">Dish 1</h3>
+            <p class="mt-2 text-gray-200">Delicious and fresh.</p>
+          </div>
+          <div class="menu-item flex-shrink-0 w-48 text-center">
+            <img
+              src="./Images/food.jpg"
+              alt="Dish 2"
+              class="w-full h-auto rounded-lg"
+            />
+            <h3 class="mt-4 text-xl text-white font-semibold">Dish 2</h3>
+            <p class="mt-2 text-gray-200">Delicious and fresh.</p>
+          </div>
+          <div class="menu-item flex-shrink-0 w-48 text-center">
+            <img
+              src="./Images/food.jpg"
+              alt="Dish 3"
+              class="w-full h-auto rounded-lg"
+            />
+            <h3 class="mt-4 text-xl text-white font-semibold">Dish 3</h3>
+            <p class="mt-2 text-gray-200">Delicious and fresh.</p>
+          </div>
+          <!-- Add more menu items as needed -->
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about-section py-20">
+      <div class="container mx-auto text-center">
+        <h2 class="text-3xl text-red-700 font-bold mb-4">About Us</h2>
+        <p class="text-gray-700 text-xl">
+          We are a fine dining restaurant offering a variety of cuisines.
+        </p>
+      </div>
+    </section>
+
+    <!-- Gradient Horizontal Line with Dots -->
+    <div class="flex items-center justify-center my-12">
+      <span class="block w-2 h-2 bg-red-700 rounded-full"></span>
+      <div
+        class="mx-4 w-4/5 h-1 bg-gradient-to-r from-red-700 via-red-500 to-red-700"
+      ></div>
+      <span class="block w-2 h-2 bg-red-700 rounded-full"></span>
+    </div>
+
+    <section id="contact" class="contact-section py-20 bg-white">
+      <div class="container mx-auto">
+        <h2 class="text-3xl text-red-700 font-bold text-center mb-8 px-10">
+          Contact To This Restaurant
+        </h2>
+        <div
+          class="flex flex-col md:flex-row justify-around items-center space-y-8 md:space-y-0 md:space-x-8 px-20"
+        >
+          <div
+            class="text-center md:text-left bg-gray-100 p-6 rounded-lg shadow-md w-full max-w-md mx-auto"
+          >
+            <h3 class="text-2xl font-semibold text-red-700 mb-4">
+              Contact Details
+            </h3>
+            <p class="text-gray-800 mb-2">
+              <strong class="text-gray-700">Address:</strong> FH8W+3V5, End of
+              Strand Road, Myeik
+            </p>
+            <p class="text-gray-800">
+              <strong class="text-gray-700">Phone:</strong>
+              <a href="tel:09254822812" class="text-red-700 hover:underline"
+                >09254822812</a
+              >
+            </p>
+          </div>
+
+          <div class="w-full md:w-1/2">
+            <iframe
+              class="w-full h-64 md:h-96 rounded-lg"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243.48554182002326!2d98.59728945500515!3d12.465120750806538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30fbb14c10fd7889%3A0xcee85947d198a9d8!2sGOODY%20CAF%C3%89!5e0!3m2!1sen!2smm!4v1723659453561!5m2!1sen!2smm"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="relative flex items-center justify-center my-12">
+      <div class="absolute inset-0 flex items-center">
+        <div class="w-full border-t border-gray-300"></div>
+      </div>
+      <div class="relative px-4 bg-white">
+        <svg
+          class="h-8 w-8 text-red-700"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2C17.52 2 22 6.48 22 12C22 17.52 17.52 22 12 22ZM12 4C7.58 4 4 7.58 4 12C4 16.42 7.58 20 12 20C16.42 20 20 16.42 20 12C20 7.58 16.42 4 12 4ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.59L19 8L10 17Z"
+          ></path>
+        </svg>
+      </div>
+    </div>
+
+    <!--footer-->
+    <footer
+      id="footerContainer"
+      class="flex flex-col items-center justify-center space-y-10 w-s4/5 max-w-7xl hover:bg-[#fafafa] hover:text-red-700 mx-auto"
+    ></footer>
+
+    <script src="./innerHtmlInserter.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="2.js"></script>
+
+    <script src="script.js"></script>
+  </body>
+</html>

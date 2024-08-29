@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islands</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex flex-col  w-fuitems-center min-h-screen">
+    <!-- Navbar -->
+    <nav
+    id="navContainer"
+    class="z-50 flex justify-between items-center p-1 px-20 sticky top-0 bg-white backdrop-blur-md"
+  ></nav>
+
+    <div class="container mx-auto max-w-7xl p-4 text-center">
+        <h1 class="text-5xl font-bold text-[#b8162a] mb-8 hover:scale-105 transform transition">Islands</h1>
+
+        <!--test-->
+        <div class="w-full overflow-x-auto scrollbar-thin scrollbar-thumb-red-700 scrollbar-track-gray-300 py-6">
+            <div class="flex flex-row  space-x-8">
+        
+                <!-- Card 1 -->
+                <div class="min-w-[400px] bg-white rounded-lg shadow-lg overflow-hidden hover:scale-105 transform transition">
+                    <img src="./Images/island1.jpg" alt="Paw Daw Mu Pagoda" class="w-full h-64 object-cover">
+                    <div class="p-6 text-left">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-2">Paw Daw Mu Pagoda</h3>
+                        <p class="text-gray-600 text-sm">
+                            After a long time of being isolated from the outside world, the Myeik Archipelago’s accessibility now is unrestricted and more open for tourism. Our Myeik Archipelago tours & day trips bring you to the isolated archipelago which is home to more than 800 beautiful islands which are created in different kinds of shapes. Located in the Andaman Sea off the coast of southern Myanmar, the Myeik Archipelago (or Mergui) is considered as one of the planet’s most unspoiled destinations. The islands and surrounding seas look viable thanks to the diversity of flora & fauna system and stunning underwater scenes and marine life.
+                        </p>
+                    </div>
+                </div>
+        
+                <!-- Card 2 -->
+                <div class="min-w-[400px] bg-white rounded-lg shadow-lg overflow-hidden hover:scale-105 transform transition">
+                    <img src="./Images/TheinDawGyi.jpg" alt="Thein Daw Gyi" class="w-full h-64 object-cover">
+                    <div class="p-6 text-left">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-2">Thein Daw Gyi</h3>
+                        <p class="text-gray-600 text-sm">
+                            <!-- Description for Thein Daw Gyi -->
+                            Thein Daw Gyi Pagoda is another important religious site in Myeik, offering a peaceful atmosphere 
+                            and a stunning view of the surroundings. It is a perfect spot for meditation and quiet reflection.
+                        </p>
+                    </div>
+                </div>
+        
+                <!-- Card 3 -->
+                <div class="min-w-[400px] bg-white rounded-lg shadow-lg overflow-hidden hover:scale-105 transform transition">
+                    <img src="./Images/TheinDawGyi.jpg" alt="Reliability" class="w-full h-64 object-cover">
+                    <div class="p-6 text-left">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-2">Reliability</h3>
+                        <p class="text-gray-600 text-sm">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.
+                            Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+                        </p>
+                    </div>
+                </div>
+        
+                <!-- Card 3 -->
+                <div class="min-w-[400px] bg-white rounded-lg shadow-lg overflow-hidden hover:scale-105 transform transition">
+                    <img src="./Images/TheinDawGyi.jpg" alt="Reliability" class="w-full h-64 object-cover">
+                    <div class="p-6 text-left">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-2">Reliability</h3>
+                        <p class="text-gray-600 text-sm">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.
+                            Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
+                        </p>
+                    </div>
+                </div>
+                <!-- Add more cards as needed -->
+                
+            </div>
+        </div>
+        
+
+        <!-- Map Section -->
+        <div class="grid grid-cols-1 mt-10 mb-10 md:grid-cols-3 gap-8">
+
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center hover:scale-105 transform transition">
+                <h4 class="text-xl font-semibold text-red-700 mb-2">Pagoda</h4>
+                <p class="text-red-700 mb-4">Find the Pagoda near you</p>
+                <button class="bg-red-700 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">Map</button>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center hover:scale-105 transform transition">
+                <h4 class="text-xl font-semibold text-red-700 mb-2">Island</h4>
+                <p class="text-red-700 mb-4">Find the Island that you want to go</p>
+                <button class="bg-red-700 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">Map</button>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center hover:scale-105 transform transition">
+                <h4 class="text-xl font-semibold text-red-700 mb-2">Popular Spot</h4>
+                <p class="text-red-700 mb-4">Find the popular spot near you</p>
+                <button class="bg-red-700 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">Map</button>
+            </div>
+
+        </div>
+        
+        <!--footer-->
+    <footer
+      id="footerContainer"
+      class="flex flex-col items-center justify-center space-y-10 w-s4/5 max-w-7xl hover:bg-[#fafafa] hover:text-red-700 mx-auto"
+    ></footer>
+    </div>
+
+    <script>
+        document.querySelectorAll('.search').forEach(button => {
+            button.addEventListener('click', () => {
+                document.write('Search feature is not implemented yet.');
+            });
+        });
+    </script>
+    
+
+    <script src="./innerHtmlInserter.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="2.js"></script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destination</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --main-color: #b8162a;
+        }
+    </style>
+</head>
+
+<body class="bg-white font-sans">
+<!-- Navbar -->
+    <nav
+      id="navContainer"
+      class="z-50 flex justify-between items-center p-1 px-20 sticky top-0 bg-white backdrop-blur-md"
+    ></nav>
+    <!-- Destination and nav -->
+    <div class="relative h-screen w-full overflow-hidden">
+        <img src="./Images/destination_cover.jpg" alt="Cities" class="absolute inset-0 w-full h-full object-cover filter brightness-75 bg-black opacity-100">
+        <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white">
+            <h1 class="text-6xl md:text-8xl mb-10 font-semibold hover:text-red-700">Destination</h1>
+            <nav>
+                <ul class="flex gap-4 md:gap-8">
+                    <li><a href="#pagodas" class="text-lg text-white md:text-xl px-4 py-2 rounded-xl bg-red-700 bg-opacity-100 hover:bg-red-600 hover:text-white transition">Pagodas</a></li>
+                    <li><a href="#islands" class="text-lg text-white md:text-xl px-4 py-2 rounded-xl bg-red-700 bg-opacity-100 hover:bg-red-600 hover:text-white transition">Islands</a></li>
+                    <li><a href="#popular" class="text-lg text-white md:text-xl px-4 py-2 rounded-xl bg-red-700 bg-opacity-100  hover:bg-red-600 hover:text-white transition">Popular Spot</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!-- End Destination and nav -->
+
+    <!-- Pagodas Information -->
+    <section id="pagodas" class="py-16">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12 px-6">
+            <div class="flex-1">
+                <img src="./Images/pagoda.jpg" alt="Pagoda" class="w-full h-auto rounded-lg hover:scale-105 transition-transform">
+            </div>
+            <div class="flex-1 space-y-4">
+                <h1 class="text-3xl text-red-700 md:text-4xl font-semibold">Pagodas</h1>
+                <p class="text-gray-700 leading-relaxed">
+                    Where beauty takes centre stage; you’ll find picturesque squares and medieval alleyways in virtually all of our cities. So it’s hardly surprising that the old town of our capital has been conferred UNESCO World Heritage status.
+                </p>
+                <a href="./pagoda.html" class="text-xl text-[var(--main-color)] font-bold hover:underline">Show all →</a>
+            </div>
+        </div>
+    </section>
+    <!-- End Pagodas Information -->
+
+    <!-- Islands -->
+    <section id="islands" class="py-16 bg-gray-100">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12 px-6">
+            <div class="flex-1 space-y-4">
+                <h1 class="text-3xl md:text-4xl font-semibold">Islands</h1>
+                <p class="text-gray-700 leading-relaxed">
+                    Where beauty takes centre stage; you’ll find picturesque squares and medieval alleyways in virtually all of our cities. So it’s hardly surprising that the old town of our capital has been conferred UNESCO World Heritage status.
+                </p>
+                <a href="./island.html" class="text-xl text-[var(--main-color)] font-bold hover:underline">Show all →</a>
+            </div>
+            <div class="flex-1">
+                <img src="./Images/Island.jpg" alt="Island" class="w-full h-auto rounded-lg hover:scale-105 transition-transform">
+            </div>
+        </div>
+    </section>
+    <!-- End Islands -->
+
+    <!-- Popular Spot -->
+    <section id="popular" class="py-16">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12 px-6">
+            <div class="flex-1">
+                <img src="./Images/pop.jpg" alt="Popular Spot" class="w-full h-auto rounded-lg hover:scale-105 transition-transform">
+            </div>
+            <div class="flex-1 space-y-4">
+                <h1 class="text-3xl md:text-4xl font-semibold">Popular Spot</h1>
+                <p class="text-gray-700 leading-relaxed">
+                    Where beauty takes centre stage; you’ll find picturesque squares and medieval alleyways in virtually all of our cities. So it’s hardly surprising that the old town of our capital has been conferred UNESCO World Heritage status.
+                </p>
+                <a href="./popular.html" class="text-xl text-[var(--main-color)] font-bold hover:underline">Show all →</a>
+            </div>
+        </div>
+    </section>
+    <!-- End Popular Spot -->
+
+    <!-- Map Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 px-6">
+            <div class="bg-white rounded-lg p-6 text-center shadow-md hover:shadow-lg transition">
+                <h4 class="text-2xl font-semibold mb-2">Pagoda</h4>
+                <p class="text-gray-700 mb-5">Find the Pagoda near you</p>
+                <button class="bg-[var(--main-color)] text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition">Map</button>
+            </div>
+
+            <div class="bg-white rounded-lg p-6 text-center shadow-md hover:shadow-lg transition">
+                <h4 class="text-2xl font-semibold mb-2">Island</h4>
+                <p class="text-gray-700 mb-5">Find the Island that you want to go</p>
+                <button class="bg-[var(--main-color)] text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition">Map</button>
+            </div>
+
+            <div class="bg-white rounded-lg p-6 text-center shadow-md hover:shadow-lg transition">
+                <h4 class="text-2xl font-semibold mb-2">Popular Spot</h4>
+                <p class="text-gray-700 mb-5">Find the popular spot near you</p>
+                <button class="bg-[var(--main-color)] text-white px-4 py-2 rounded-lg hover:bg-opacity-90 transition">Map</button>
+            </div>
+        </div>
+    </section>
+    <!-- End Map Section -->
+
+<!--footer-->
+    <footer
+      id="footerContainer"
+      class="flex flex-col items-center justify-center space-y-10 w-s4/5 max-w-7xl hover:bg-[#fafafa] hover:text-red-700 mx-auto"
+    ></footer>
+<script src="./innerHtmlInserter.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="2.js"></script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

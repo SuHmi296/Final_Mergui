@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp - MERGUI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="w-full max-w-md bg-white rounded-lg shadow-lg p-6 m-10">
+        <div class="text-center mb-6">
+            <img src="./Images/lg.png" alt="Mergui City Logo" class="w-50 mx-auto">
+            <h1 class="text-2xl font-semibold text-gray-800 mt-4">Welcome From MERGUI!</h1>
+        </div>
+
+        <h2 class="text-xl font-semibold text-red-700 mb-4 text-center hover:text-red-500">Sign Up For An account</h2>
+        <form action="signup" method="POST">
+            <!-- Username -->
+            <div class="mb-4">
+                <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+                <input name="username" id="username" type="text" placeholder="Enter your username" required class="w-full mt-1 p-3 border border-gray-300 rounded focus:ring-teal-500 focus:border-teal-500">
+            </div>
+
+            <!-- Email -->
+            <div class="mb-4">
+                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                <input name="email" id="email" type="email" placeholder="Enter your email" required class="w-full mt-1 p-3 border border-gray-300 rounded focus:ring-teal-500 focus:border-teal-500">
+            </div>
+            
+            <!-- Phone -->
+            <div class="mb-4">
+                <label for="phone" class="block text-sm font-medium text-gray-700">Phone</label>
+                <input name="phone" id="phone" type="tel" placeholder="Enter your Phone" required class="w-full mt-1 p-3 border border-gray-300 rounded focus:ring-teal-500 focus:border-teal-500">
+            </div>
+            <!-- Password -->
+            <div class="mb-4">
+                <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                <input name="password" id="password" type="password" placeholder="Enter your password" required class="w-full mt-1 p-3 border border-gray-300 rounded focus:ring-teal-500 focus:border-teal-500">
+            </div>
+
+            <!-- Role Selection -->
+            <div class="mb-4">
+                <label for="role" class="block text-sm font-medium text-gray-700">Select Role</label>
+                <select name="role" id="role" class="w-full mt-1 p-3 border border-gray-300 rounded focus:ring-teal-500 focus:border-teal-500" onchange="toggleActivationCode()" required>
+                    <option value="Customer">Customer</option>
+                    <option value="Co-admin">Co-admin</option>
+                </select>
+
+                <!-- Activation Code (hidden by default) -->
+                <div id="activationCodeContainer" class="mt-4 hidden">
+                    <label for="activationCode" class="block text-sm font-medium text-gray-700">Activation Code</label>
+                    <input name="activationCode" id="activationCode" type="text" placeholder="Enter your activation code" class="w-full mt-1 p-3 border border-gray-300 rounded focus:ring-teal-500 focus:border-teal-500">
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="mt-6">
+                <button type="submit" class="w-full py-3 bg-red-700 text-white rounded-lg hover:bg-red-500 transition duration-200">
+                    Sign Up
+                </button>
+            </div>
+        </form>
+
+        <p class="text-center mt-6 text-sm text-gray-600">
+            Already have an account? <a href="signin.html" class="text-red-700 hover:text-red-500">Sign In to Your Account</a>
+        </p>
+    </div>
+    
+    <!-- <form id="activationCodeForm" method="post">
+    <label for="email" class="block text-gray-700">Co-admin Email:</label>
+    <input type="email" id="email" name="email" required class="w-full p-2 mb-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-500">
+    <button type="button" onclick="sendActivationCode()" class="bg-red-700 text-white px-4 py-2 rounded hover:bg-red-600">Send Activation Code</button>
+    <p id="responseMessage" class="mt-2 text-green-600"></p>
+</form> -->
+
+    <script>
+        function toggleActivationCode() {
+            const roleSelect = document.getElementById('role');
+            const activationCodeContainer = document.getElementById('activationCodeContainer');
+
+            if (roleSelect.value === 'Co-admin') {
+                activationCodeContainer.classList.remove('hidden');
+            } else {
+                activationCodeContainer.classList.add('hidden');
+            }
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+

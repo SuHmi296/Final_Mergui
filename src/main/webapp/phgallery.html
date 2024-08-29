@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+    <!-- Hotel Booking Form and Photo/Content Section -->
+    <div class="flex max-w-7xl w-full space-x-4">
+        <!-- Booking Form -->
+        <div id="bookingForm" class="bg-white p-8 rounded-lg shadow-md w-full md:w-1/2">
+            <form class="space-y-6">
+                <div>
+                    <label for="hotelName" class="block text-lg font-medium text-gray-700">Hotel Name</label>
+                    <input type="text" id="hotelName" name="hotelName"
+                        class="w-full mt-2 p-3 border rounded-lg focus:ring-2 focus:ring-red-500 focus:outline-none"
+                        placeholder="Enter hotel name" required />
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label for="arrivalDate" class="block text-lg font-medium text-gray-700">Arrival Date</label>
+                        <input type="date" id="arrivalDate" name="arrivalDate"
+                            class="w-full mt-2 p-3 border rounded-lg focus:ring-2 focus:ring-red-500 focus:outline-none" />
+                    </div>
+                    <div>
+                        <label for="departureDate" class="block text-lg font-medium text-gray-700">Departure Date</label>
+                        <input type="date" id="departureDate" name="departureDate"
+                            class="w-full mt-2 p-3 border rounded-lg focus:ring-2 focus:ring-red-500 focus:outline-none" />
+                    </div>
+                </div>
+                <div>
+                    <label for="arrivalTime" class="block text-lg font-medium text-gray-700">Arrival Time</label>
+                    <input type="time" id="arrivalTime" name="arrivalTime"
+                        class="w-full mt-2 p-3 border rounded-lg focus:ring-2 focus:ring-red-500 focus:outline-none" />
+                </div>
+                <div>
+                    <label for="phone" class="block text-lg font-medium text-gray-700">Phone Number</label>
+                    <input type="text" id="phone" name="phone"
+                        class="w-full mt-2 p-3 border rounded-lg focus:ring-2 focus:ring-red-500 focus:outline-none"
+                        placeholder="Enter phone number" required />
+                </div>
+                <div>
+                    <label for="room" class="block text-lg font-medium text-gray-700">Room</label>
+                    <select id="room" name="room"
+                        class="w-full mt-2 p-3 border rounded-lg focus:ring-2 focus:ring-red-500 focus:outline-none">
+                        <option value="1">1 Room</option>
+                        <option value="2">2 Rooms</option>
+                        <option value="3">3 Rooms</option>
+                        <option value="4">4 Rooms</option>
+                        <option value="5">5 Rooms</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="guests" class="block text-lg font-medium text-gray-700">Guests</label>
+                    <div id="guests" class="bg-gray-700 text-white p-3 rounded-lg mt-2 cursor-pointer text-center">
+                        1 Adult, 0 Children
+                    </div>
+                </div>
+                <button type="submit"
+                    class="w-full py-3 mt-6 bg-red-600 text-white rounded-lg font-medium hover:bg-red-500 transition-colors">
+                    Submit Booking
+                </button>
+            </form>
+        </div>
+
+        <!-- Photo and Content Section -->
+        <div class="bg-white p-8 rounded-lg shadow-md w-full md:w-1/2 flex flex-col justify-between">
+            <!-- Photo -->
+            <img src="./Images/edp.jpg" alt="Hotel Photo" class="w-full h-64 object-cover rounded-lg mb-6">
+
+            <!-- Content -->
+            <div>
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Experience Luxury at Our Hotel</h2>
+                <p class="text-gray-600">Indulge in a unique blend of luxury and comfort at our hotel. Enjoy world-class
+                    amenities, exceptional service, and a serene environment. Perfect for both leisure and business
+                    stays, our hotel offers a variety of rooms and suites designed to cater to your every need.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
