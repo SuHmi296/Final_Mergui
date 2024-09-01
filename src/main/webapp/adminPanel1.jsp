@@ -153,7 +153,6 @@ header {
 					      <div class="input_field captch_input">
 					        <input type="text" placeholder="Add Description" />
 					      </div>
-					      <div class="message">Entered captcha is correct</div>
 					      <div class="input_field button disabled text-red-700">
 					        <button>Add to Database</button>
 					      </div>
@@ -317,14 +316,28 @@ header {
 		let captchaText = null;
 		
 		// Function to generate captcha
-		const generateCaptcha = () => {
-		  const randomString = Math.random().toString(36).substring(2, 7);
-		  const randomStringArray = randomString.split("");
-		  const changeString = randomStringArray.map((char) => (Math.random() > 0.5 ? char.toUpperCase() : char));
-		  captchaText = changeString.join("   ");
-		  captchaTextBox.value = captchaText;
-		  console.log(captchaText);
-		};
+const generateCaptcha = () => {
+  // Generate a random string with more than 9 characters
+  const randomString = Math.random().toString(36).substring(2, 8);
+
+  // Split the string into an array of characters
+  const randomStringArray = randomString.split("");
+
+  // Map over the array to randomly change characters to uppercase
+  const changeString = randomStringArray.map((char) => 
+    (Math.random() > 0.5 ? char.toUpperCase() : char)
+  );
+
+  // Join the array back into a string
+  const captchaText = changeString.join("");
+
+  // Set the captcha text to the text box
+  captchaTextBox.value = captchaText;
+
+  // Log the captcha text for debugging
+  console.log(captchaText);
+};
+
 		
 		const refreshBtnClick = () => {
 		  generateCaptcha();
