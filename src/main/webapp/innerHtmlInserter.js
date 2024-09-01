@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
       <ul class="flex space-x-8 text-red-700 font-semibold">
         <li><a href="destination.html" class="hover:text-red-500 transition">Destination</a></li>
-        <li><a href="accomodation.html" class="hover:text-red-500 transition">Accommodation</a></li>
+        <li><a href="hotelNameOutput.jsp" class="hover:text-red-500 transition">Accommodation</a></li>
         <li><a href="restaurant.html" class="hover:text-red-500 transition">Restaurants</a></li>
         <li><a href="#" class="hover:text-red-500 transition">Transportation</a></li>
         <li><a href="contactus.html" class="hover:text-red-500 transition">Contact Us</a></li>

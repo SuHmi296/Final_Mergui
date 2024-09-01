@@ -1,4 +1,4 @@
-package article;
+package hotel;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -19,11 +19,11 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-@WebServlet("/getAllArticles")
-public class getAllArticles extends HttpServlet {
+@WebServlet("/getAllHotel")
+public class getAllHotel extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    public getAllArticles() {
+    public getAllHotel() {
         super();
     }
 
@@ -34,7 +34,7 @@ public class getAllArticles extends HttpServlet {
         Connection conn = null;
         PreparedStatement st = null;
         ResultSet rs = null;
-        ArrayList<ArticleClass> articles = new ArrayList<>();
+        ArrayList<HotelClass> hotels = new ArrayList<>();
         
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -43,35 +43,38 @@ public class getAllArticles extends HttpServlet {
             String dbPass = "root";
 
             conn = DriverManager.getConnection(dbURL, dbUser, dbPass);
-            String sql = "SELECT a.*, i.image_data FROM articles a LEFT JOIN images i ON a.article_id = i.parent_id";
+            String sql = "SELECT a.*, i.image_data FROM hotels a LEFT JOIN images i ON a.hotel_id = i.parent_id";
             st = conn.prepareStatement(sql);
             rs = st.executeQuery();
             
             while (rs.next()) {
-                ArticleClass article = new ArticleClass();
-                article.setId(rs.getInt("article_id"));
-                article.setTitle(rs.getString("title"));
-                article.setContent(rs.getString("content"));
-                article.setCategory(rs.getString("category"));
-                article.setCreatedAt(rs.getTimestamp("created_at"));
+                HotelClass hotel = new HotelClass();
+                hotel.setHotelId(rs.getInt("hotel_id"));
+                hotel.setHotelName(rs.getString("hotel_name")); // Removed trailing space
+                hotel.setLocation(rs.getString("location"));
+                hotel.setRoomTypes(rs.getString("room_types"));
+                hotel.setContactAddress(rs.getString("contact_address"));
+                hotel.setPhone(rs.getString("phone"));
+                hotel.setCreatedAt(rs.getTimestamp("created_at"));
                 
                 // Handling image data as Base64
-                byte[] imageBytes = rs.getBytes("image_data");
+                byte[] imageBytes = rs.getBytes("image_data"); // Ensure image_data exists in ResultSet
                 String image;
                 if (imageBytes != null && imageBytes.length > 0) {
                     image = "data:image/jpeg;base64," + Base64.getEncoder().encodeToString(imageBytes);
                 } else {
                     image = "./Images/backgroundimg.jpg"; // Default image URL
                 }
-                System.out.println("Image =>"+image);
+                System.out.println("Image =>" + image);
                 
-                article.setImage(image);
-                articles.add(article);
+                hotel.setImage(image);
+                hotels.add(hotel); // Assuming hotels is a List<HotelClass>
             }
+
             
             // Convert the articles list to JSON
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            String jsonResponse = gson.toJson(articles);
+            String jsonResponse = gson.toJson(hotels);
             
             // Send the JSON response
             response.getWriter().write(jsonResponse);

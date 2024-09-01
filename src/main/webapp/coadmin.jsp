@@ -243,8 +243,9 @@
 										<h2
 											class="text-3xl text-red-700 font-semibold mb-6 text-gray-800">Add
 											Hotel</h2>
-										<form action="UploadHotelServlet" method="post"
+										<form action="hotel" method="post"
 											enctype="multipart/form-data">
+											<input type="hidden" value="create" name="mode">
 											<label for="hotelName"
 												class="block text-sm font-medium text-red-700 mb-2">Hotel
 												Name:</label> <input type="text" id="hotelName" name="hotelName"

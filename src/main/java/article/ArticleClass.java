@@ -1,4 +1,5 @@
 package article;
+
 import java.sql.Blob;
 import java.sql.Timestamp;
 
@@ -6,11 +7,24 @@ public class ArticleClass {
     private int id;
     private String title;
     private String content;
-    private String category;
-    private Blob image;
     private Timestamp createdAt;
+    private String category;
+    private String image; // Assuming the image is stored as a URL or file path
 
-    // Getters and Setters
+    // Default constructor
+    public ArticleClass() {
+    }
+
+    // Parameterized constructor
+    public ArticleClass(int id, String title, String content, String category, String image) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.category = category;
+        this.image = image;
+    }
+
+    // Getters and setters for each field
     public int getId() {
         return id;
     }
@@ -30,6 +44,9 @@ public class ArticleClass {
     public String getContent() {
         return content;
     }
+    public Timestamp getCreatedAt() {
+        return createdAt;
+    }
 
     public void setContent(String content) {
         this.content = content;
@@ -43,19 +60,17 @@ public class ArticleClass {
         this.category = category;
     }
 
-    public Blob getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(Blob image) {
+	public void setCreatedAt(Timestamp timestamp) {
+		this.createdAt = timestamp;
+	}
+
+	public void setImage(String image) {
         this.image = image;
-    }
+		
+	}
 
-    public Timestamp getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Timestamp createdAt) {
-        this.createdAt = createdAt;
-    }
 }
