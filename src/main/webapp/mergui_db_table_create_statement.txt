@@ -1,0 +1,131 @@
+CREATE TABLE Customer (
+    CustomerID INT PRIMARY KEY AUTO_INCREMENT,
+    UserName VARCHAR(255) NOT NULL,
+    Email VARCHAR(255) UNIQUE NOT NULL,
+    PasswordHash VARCHAR(255) NOT NULL,
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE Admin (
+    AdminID INT PRIMARY KEY AUTO_INCREMENT,
+    UserName VARCHAR(255) NOT NULL,
+    Email VARCHAR(255) UNIQUE NOT NULL,
+    PasswordHash VARCHAR(255) NOT NULL,
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE Coadmin (
+    CoadminID INT PRIMARY KEY AUTO_INCREMENT,
+    UserName VARCHAR(255) NOT NULL,
+    Email VARCHAR(255) UNIQUE NOT NULL,
+    PasswordHash VARCHAR(255) NOT NULL,
+    ActivationCode VARCHAR(255),
+    IsActive BOOLEAN DEFAULT FALSE,
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE BusinessProfile (
+    BusinessProfileID INT PRIMARY KEY AUTO_INCREMENT,
+    BusinessName VARCHAR(255) NOT NULL,
+    Location VARCHAR(255) NOT NULL,
+    Description TEXT,
+    CoadminID INT,
+    FOREIGN KEY (CoadminID) REFERENCES Coadmin(CoadminID),
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE Service (
+    ServiceID INT PRIMARY KEY AUTO_INCREMENT,
+    BusinessProfileID INT,
+    ServiceType ENUM('hotel', 'restaurant', 'transportation') NOT NULL,
+    ServiceName VARCHAR(255) NOT NULL,
+    FOREIGN KEY (BusinessProfileID) REFERENCES BusinessProfile(BusinessProfileID),
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE Room (
+    RoomID INT PRIMARY KEY AUTO_INCREMENT,
+    ServiceID INT,
+    RoomNumber INT NOT NULL,
+    RoomType VARCHAR(255) NOT NULL,
+    Price DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (ServiceID) REFERENCES Service(ServiceID),
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE RoomReservation (
+    ReservationID INT PRIMARY KEY AUTO_INCREMENT,
+    RoomID INT,
+    CustomerID INT,
+    CheckInDate DATE NOT NULL,
+    CheckOutDate DATE NOT NULL,
+    FOREIGN KEY (RoomID) REFERENCES Room(RoomID),
+    FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID),
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE RestaurantTable (
+    TableID INT PRIMARY KEY AUTO_INCREMENT,
+    ServiceID INT,
+    TableNumber INT,
+    Seats INT,
+    FOREIGN KEY (ServiceID) REFERENCES Service(ServiceID),
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE RestaurantReservation (
+    ReservationID INT PRIMARY KEY AUTO_INCREMENT,
+    RestaurantTableID INT,
+    CustomerID INT,
+    ReservationDate DATE,
+    FOREIGN KEY (RestaurantTableID) REFERENCES RestaurantTable(TableID),
+    FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID),
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE Transportation (
+    TransportationID INT PRIMARY KEY AUTO_INCREMENT,
+    ServiceID INT,
+    VehicleType VARCHAR(255) NOT NULL,
+    VehicleNumber VARCHAR(255) NOT NULL,
+    FOREIGN KEY (ServiceID) REFERENCES Service(ServiceID),
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE TransportationBooking (
+    BookingID INT PRIMARY KEY AUTO_INCREMENT,
+    TransportationID INT,
+    CustomerID INT,
+    PickupLocation VARCHAR(255) NOT NULL,
+    DropoffLocation VARCHAR(255) NOT NULL,
+    BookingDate DATE NOT NULL,
+    FOREIGN KEY (TransportationID) REFERENCES Transportation(TransportationID),
+    FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID),
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE UserActivity (
+    ActivityID INT PRIMARY KEY AUTO_INCREMENT,
+    UserID INT,
+    UserType ENUM('customer', 'admin', 'coadmin') NOT NULL,
+    ActivityType VARCHAR(255) NOT NULL,
+    ActivityDetails TEXT,
+    ActivityDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE ActivationCode (
+    CodeID INT PRIMARY KEY AUTO_INCREMENT,
+    Code VARCHAR(255) UNIQUE NOT NULL,
+    AdminID INT,
+    CoadminID INT,
+    IsUsed BOOLEAN DEFAULT FALSE,
+    FOREIGN KEY (AdminID) REFERENCES Admin(AdminID),
+    FOREIGN KEY (CoadminID) REFERENCES Coadmin(CoadminID),
+    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+

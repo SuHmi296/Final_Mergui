@@ -57,6 +57,15 @@
             90% { opacity: 1; bottom: 20px; }
             100% { opacity: 0; bottom: 0; }
         }
+        
+        /* Ensuring modal is hidden by default */
+        .modal {
+            display: none;
+        }
+        .modal.active {
+            display: flex; /* Flex to center the content */
+        }
+        
     </style>
 </head>
 <body class="bg-gray-100">
@@ -93,13 +102,16 @@
 		</div>
 
 		<!-- Main Content -->
-		<div class="flex w-[calc(100%-20rem)] mr-20 ml-auto">
-			<div class="w-screen p-5 mt-24 pl-10">
+		<div class="flex w-[calc(100%-20rem)] h-screen mr-20 ml-auto">
+			<div class="w-screen h-screen p-5 mt-24 pl-10">
 				<!-- Default Visible Section -->
-				<section id="dashboard" class="relative z-10w-full h-full overflow-y-scroll">
-					<h1 class="text-4xl text-red-700 font-bold mb-4 hover:text-red-650">
+				<section id="dashboard" class="relative z-10 w-full h-full overflow-y-scroll">
+					
+				<div class="w-full flex flex-row space-x-5">
+					<div id="left">
+						<h1 class="text-4xl text-red-700 font-bold mb-4 hover:text-red-650">
 						Welcome to the Co-Admin Dashboard</h1>
-					<div class="flex justify-around w-full mb-6">
+						<div class="flex justify-around w-full mb-6">
 						<!-- Total Hotels -->
 						<div class="bg-gray-200 rounded-lg p-4 flex flex-col">
 							<p class="text-xl font-bold text-red-500">Booked Rooms</p>
@@ -122,6 +134,46 @@
 								0</p>
 						</div>
 					</div>
+					</div>
+					<div id="right" class="w-2/5 rounded-lg p-5 border border-red-500">
+        				<button id="openModalButton" class="bg-red-500 w-full h-full text-white py-2 px-4 rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500">Open Business Profile Form</button>
+					</div>
+				</div>
+					
+
+    <!-- Modal structure -->
+    <div id="modal" class="modal fixed inset-1 items-center justify-center bg-gray-900 bg-opacity-50">
+        <div class="w-[450px] mx-auto p-6 bg-white rounded-lg shadow-md relative">
+            <button id="closeModalButton" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+                &times;
+            </button>
+            <h1 class="text-2xl font-semibold mb-4 text-center">Create Business Profile</h1>
+            <form action="/createBusinessProfile" method="post">
+				<input type="hidden" id="coadminId" name="coadminId" required> 
+            
+                <div class="mb-4">
+                    <label for="businessName" class="block text-gray-700 text-sm font-bold mb-2">Business Name:</label>
+                    <input type="text" id="businessName" name="businessName" required 
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div class="mb-4">
+                    <label for="location" class="block text-gray-700 text-sm font-bold mb-2">Location:</label>
+                    <input type="text" id="location" name="location" required 
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div class="mb-4">
+                    <label for="description" class="block text-gray-700 text-sm font-bold mb-2">Description:</label>
+                    <textarea id="description" name="description" rows="4"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                </div>
+                <div class="flex items-center justify-center">
+                    <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+
 					<div class="flex">
 						<!-- Room Table -->
 						<div class="overflow-x-auto w-full mb-4 space-y-2">
@@ -217,6 +269,9 @@
 						</div>
 					</div>
 				</section>
+				
+					</div>
+
 
 				<!-- Add Product Container -->
 				<section id="addProduct"
@@ -537,35 +592,28 @@
 
 											<!-- Image upload section similar to the restaurant form -->
 											<div class="flex items-center justify-center w-full mb-2">
-												<label for="articleImage"
-													class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
-													<div
-														class="flex flex-col items-center justify-center pt-5 pb-6">
-														<svg class="w-8 h-8 mb-4 text-gray-500" aria-hidden="true"
-															xmlns="http://www.w3.org/2000/svg" fill="none"
-															viewBox="0 0 20 16">
-                        <path stroke="currentColor"
-																stroke-linecap="round" stroke-linejoin="round"
-																stroke-width="2"
-																d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
-                    </svg>
-														<p class="mb-2 text-sm text-gray-500">
-															<span class="font-semibold">Click to upload</span> or
-															drag and drop
-														</p>
-														<p class="text-xs text-gray-500">SVG, PNG, JPG or GIF
-															(MAX. 800x400px)</p>
-													</div> <input id="articleImage" type="file" class="hidden"
-													name="image" accept="image/*" />
-												</label>
+											    <label for="articleImages"
+											        class="flex flex-col items-center justify-center w-full h-40 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
+											        <div class="flex flex-col items-center justify-center pt-5 pb-6">
+											            <svg class="w-8 h-8 mb-4 text-gray-500" aria-hidden="true"
+											                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+											                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+											                    stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+											            </svg>
+											            <p class="mb-2 text-sm text-gray-500">
+											                <span class="font-semibold">Click to upload</span> or drag and drop
+											            </p>
+											            <p class="text-xs text-gray-500">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+											        </div>
+											        <input id="articleImages" type="file" class="hidden" name="images" accept="image/*" multiple />
+											    </label>
+											</div>
+											
+											<!-- Image preview section -->
+											<div id="articleImagePreviewContainer" class="flex flex-wrap items-center justify-center w-full mb-4">
+											    <!-- Preview images will be dynamically added here -->
 											</div>
 
-											<!-- Image preview section -->
-											<div id="articleImagePreviewContainer"
-												class="flex items-center justify-center w-full mb-4">
-												<img id="articleImagePreview" src="" alt="Image Preview"
-													class="hidden max-w-full h-auto rounded-lg shadow-md" />
-											</div>
 
 											<button type="submit"
 												class="w-full bg-red-600 text-white py-3 rounded-lg font-semibold hover:bg-red-700 transition duration-300 mb-20">
@@ -870,25 +918,53 @@
       }
     </script>
 	<script>
-        document.getElementById('dropzone-file').addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            const imagePreview = document.getElementById('imagePreview');
-            const imagePreviewContainer = document.getElementById('imagePreviewContainer');
+	document.getElementById('articleImages').addEventListener('change', function(event) {
+	    const files = event.target.files; // Get the selected files
+	    const previewContainer = document.getElementById('articleImagePreviewContainer');
+	    
+	    // Clear any previous previews
+	    previewContainer.innerHTML = '';
 
-            if (file) {
-                const reader = new FileReader();
+	    for (const file of files) {
+	        if (file && file.type.startsWith('image/')) {
+	            const reader = new FileReader();
 
-                reader.onload = function(e) {
-                    imagePreview.src = e.target.result;
-                    imagePreview.classList.remove('hidden');
-                };
+	            reader.onload = function(e) {
+	                // Create an image element for each selected file
+	                const img = document.createElement('img');
+	                img.src = e.target.result; // Set the src to the file data URL
+	                img.alt = 'Image Preview';
+	                img.className = 'max-w-full h-auto rounded-lg shadow-md'; // Tailwind classes for styling
 
-                reader.readAsDataURL(file);
-            } else {
-                imagePreview.src = '';
-                imagePreview.classList.add('hidden');
+	                // Append the image to the preview container
+	                previewContainer.appendChild(img);
+	            };
+
+	            reader.readAsDataURL(file); // Read the image file as a data URL
+	        }
+	    }
+	});
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const openModalButton = document.getElementById('openModalButton');
+        const modal = document.getElementById('modal');
+        const closeModalButton = document.getElementById('closeModalButton');
+
+        openModalButton.addEventListener('click', function () {
+            modal.classList.add('active');
+        });
+
+        closeModalButton.addEventListener('click', function () {
+            modal.classList.remove('active');
+        });
+
+        // Close the modal if the user clicks outside the modal content
+        window.addEventListener('click', function (event) {
+            if (event.target === modal) {
+                modal.classList.remove('active');
             }
         });
+    });
     </script>
 </body>
 </html>

@@ -164,8 +164,190 @@
 			</form>
 		</div>
 
+		<!-- Restaurant Booking --->
+		<div
+			class="flex justify-between items-center md:w-1/3 max-w-7xl mx-auto p-6">
+			<div id="bookingRestaurant"
+				class="p-6 bg-white shadow-lg rounded-lg max-w-lg mx-auto mt-8">
+	
+				<form class="space-y-4">
+					<div>
+						<label for="restaurantName" class="block font-semibold">Restaurant
+							Name:</label> <input type="text" id="restaurantName" name="restaurantName"
+							placeholder="Enter restaurant name" required
+							class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-300" />
+					</div>
+					<!-- Event Type Dropdown -->
+					<div>
+						<label for="eventType" class="block font-semibold">Event
+							Type:</label> <select id="eventType" name="eventType"
+							class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-300">
+							<option value="birthday">Birthday</option>
+							<option value="anniversary">Anniversary</option>
+							<option value="business">Business Meeting</option>
+							<option value="wedding">Wedding</option>
+							<option value="other">Other</option>
+						</select>
+					</div>
+	
+					<div class="grid grid-cols-2 gap-4">
+						<div>
+							<label for="arrivalDate" class="block font-semibold">Event
+								Date (optional):</label> <input type="date" id="arrivalDate"
+								name="arrivalDate"
+								class="w-full p-2 border border-gray-300 rounded mt-1" />
+						</div>
+						<div>
+							<label for="arrivalTime" class="block font-semibold">Event
+								Time:</label> <input type="time" id="arrivalTime" name="arrivalTime"
+								class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-300" />
+						</div>
+					</div>
+	
+					<div>
+						<label for="phone" class="block font-semibold">Phone no:</label> <input
+							type="text" id="phone" name="phone" placeholder="Enter phone no"
+							required
+							class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-300" />
+					</div>
+					<div class="grid grid-cols-2 gap-4">
+						<div>
+							<label for="guests" class="block font-semibold">Guests:</label> <input
+								type="text" id="guests" name="guests"
+								placeholder="Enter number of guests" required
+								class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-300" />
+						</div>
+						<div>
+							<label for="tables" class="block font-semibold">Number of
+								Tables:</label> <select id="tables" name="tables"
+								class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-300">
+								<option value="1">1 Table</option>
+								<option value="2">2 Tables</option>
+								<option value="3">3 Tables</option>
+								<option value="4">4 Tables</option>
+								<option value="5">5 Tables</option>
+							</select>
+						</div>
+					</div>
+					<div>
+						<button type="submit"
+							class="w-full bg-red-700 text-white p-2 rounded mt-4 hover:bg-red-500 transition">Submit
+							Booking</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<!-- Taxi Booking -->
+		<div class="flex justify-between items-center max-w-7xl mx-auto p-6">
+			<div id="bookingTaxi"
+				class="bg-white p-6 rounded-lg shadow-lg max-w-md mx-auto">
+				<form class="space-y-4">
+					<div>
+						<label for="taxiNo" class="block font-semibold">Taxi No:</label> <input
+							type="text" id="taxiName" name="taxiName"
+							placeholder="Enter taxi name" required
+							class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300" />
+					</div>
+					<div>
+						<label for="taxiName" class="block font-semibold">Driver
+							Name:</label> <input type="text" id="taxiName" name="taxiName"
+							placeholder="Enter taxi name" required
+							class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300" />
+					</div>
+					<div class="grid grid-cols-2 gap-4">
+						<div>
+							<label for="arrivalDate" class="block font-semibold">Order
+								Date (optional):</label> <input type="date" id="arrivalDate"
+								name="arrivalDate"
+								class="w-full p-2 border border-gray-300 rounded mt-1" />
+						</div>
+						<div>
+							<label for="arrivalTime" class="block font-semibold">Order
+								Time:</label> <input type="time" id="arrivalTime" name="arrivalTime"
+								class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-300" />
+						</div>
+					</div>
+					<div>
+						<label for="phone" class="block font-semibold">Phone no:</label> <input
+							type="text" id="phone" name="phone" placeholder="Enter phone no"
+							required
+							class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300" />
+					</div>
+					<div>
+						<label for="guests" class="block font-semibold">Number of
+							Guests:</label> <input type="text" id="guests" name="guests"
+							placeholder="Enter number of guests" required
+							class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300" />
+					</div>
+					<div class="grid grid-cols-2 gap-4">
+						<div>
+							<label for="taxi" class="block font-semibold">Taxi type:</label> <select
+								id="taxi" name="taxi"
+								class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300">
+								<option value="1">Motorcycle</option>
+								<option value="2">A tricycle</option>
+								<option value="3">Mini Truck</option>
+							</select>
+						</div>
+						<div>
+							<label for="room" class="block font-semibold">Taxi:</label> <select
+								id="room" name="room"
+								class="w-full p-2 border border-gray-300 rounded mt-1">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+							</select>
+						</div>
+					</div>
+					<div>
+						<button type="submit"
+							class="w-full bg-red-700 text-white p-2 rounded mt-4 hover:bg-red-500 transition">Find
+							Booking</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<!-- Photo and Content Section -->
+		<div
+			class="bg-white p-6 rounded-lg shadow-md w-full md:w-1/2 flex flex-col">
+			<!-- Photo -->
+			<img src="./Images/edp.jpg" alt="Hotel Photo"
+				class="w-full h-64 object-cover rounded-lg mb-6">
+
+			<!-- Content -->
+			<div>
+				<h2 class="text-2xl font-semibold text-gray-800 mb-4">Experience
+					Luxury at Our Hotel</h2>
+				<p class="text-gray-600">Indulge in a unique blend of luxury and
+					comfort at our hotel. Enjoy world-class amenities, exceptional
+					service, and a serene environment. Perfect for both leisure and
+					business stays, our hotel offers a variety of rooms and suites
+					designed to cater to your every need.</p>
+			</div>
+
+			<!-- Horizontal Scrollable Image Section -->
+			<div
+				class="flex overflow-x-auto space-x-4 scrollbar-thin scrollbar-thumb-red-700 scrollbar-track-gray-300 mt-6">
+				<img src="./Images/edp.jpg" alt="Food Image 1"
+					class="w-64 h-48 object-cover rounded"> <img
+					src="./Images/edp.jpg" alt="Food Image 2"
+					class="w-64 h-48 object-cover rounded"> <img
+					src="./Images/edp.jpg" alt="Food Image 3"
+					class="w-64 h-48 object-cover rounded"> <img
+					src="./Images/edp.jpg" alt="Food Image 4"
+					class="w-64 h-48 object-cover rounded"> <img
+					src="./Images/edp.jpg" alt="Food Image 5"
+					class="w-64 h-48 object-cover rounded">
+			</div>
+		</div>
+
 
 	
+
 
 	<!-- Restaurant Booking -->
 <div class="max-w-7xl mx-auto p-6 space-y-6 md:space-y-0  flex flex-col md:flex-row mb-10">
