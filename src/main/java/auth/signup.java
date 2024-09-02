@@ -59,7 +59,8 @@ public class signup extends HttpServlet {
             // Establish the connection
             connection = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
 
-            if (userType.equals("coadmin")) {
+            if (userType.equalsIgnoreCase("coadmin")) {
+            	System.out.println("//Coadmin");
                 // Check if the activation code is valid and unused
                 String checkCodeSql = "SELECT CodeID FROM activationcode WHERE Code = ? AND IsUsed = 0";
                 statement = connection.prepareStatement(checkCodeSql);
@@ -68,6 +69,7 @@ public class signup extends HttpServlet {
 
                 if (resultSet.next()) {
                     // Activation code is valid
+                	System.out.println("// Activation code is valid\r\n");
                     int codeId = resultSet.getInt("CodeID");
 
                     // Register the coadmin
@@ -93,6 +95,7 @@ public class signup extends HttpServlet {
                         session.setAttribute("name", username);
                         session.setAttribute("email", email);
                         session.setAttribute("userType", userType);
+                        session.setAttribute("phone", phone);
                         response.sendRedirect("/Mergui_Project/user.jsp");
                     } else {
                         // Insert failed
@@ -103,6 +106,8 @@ public class signup extends HttpServlet {
                     response.sendRedirect("/Mergui_Project/signup.html?err=invalid_activation_code");
                 }
             } else {
+            	System.out.println("//Customer");
+
                 // Handle other Customer sign in
                 String sql = "INSERT INTO customer (username, PasswordHash, email, phone) VALUES (?, ?, ?, ?)";
                 statement = connection.prepareStatement(sql);
@@ -119,6 +124,7 @@ public class signup extends HttpServlet {
                     session.setAttribute("name", username);
                     session.setAttribute("email", email);
                     session.setAttribute("userType", userType);
+                    session.setAttribute("phone", phone);
                     response.sendRedirect("/Mergui_Project/user.jsp");
                 } else {
                     // Insert failed
@@ -148,12 +154,12 @@ public class signup extends HttpServlet {
      * @throws SQLException If a database access error occurs.
      */
     private int getUserId(String username, Connection connection) throws SQLException {
-        String sql = "SELECT UserID FROM users WHERE username = ?";
+        String sql = "SELECT CoadminID FROM coadmin WHERE username = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setString(1, username);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
-                    return rs.getInt("UserID");
+                    return rs.getInt("CoadminID");
                 } else {
                     throw new SQLException("User not found: " + username);
                 }

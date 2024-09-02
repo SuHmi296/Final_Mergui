@@ -57,6 +57,15 @@
             90% { opacity: 1; bottom: 20px; }
             100% { opacity: 0; bottom: 0; }
         }
+        
+        /* Ensuring modal is hidden by default */
+        .modal {
+            display: none;
+        }
+        .modal.active {
+            display: flex; /* Flex to center the content */
+        }
+        
     </style>
 </head>
 <body class="bg-gray-100">
@@ -93,13 +102,16 @@
 		</div>
 
 		<!-- Main Content -->
-		<div class="flex w-[calc(100%-20rem)] mr-20 ml-auto">
-			<div class="w-screen p-5 mt-24 pl-10">
+		<div class="flex w-[calc(100%-20rem)] h-screen mr-20 ml-auto">
+			<div class="w-screen h-screen p-5 mt-24 pl-10">
 				<!-- Default Visible Section -->
-				<section id="dashboard" class="relative z-10w-full h-full overflow-y-scroll">
-					<h1 class="text-4xl text-red-700 font-bold mb-4 hover:text-red-650">
+				<section id="dashboard" class="relative z-10 w-full h-full overflow-y-scroll">
+					
+				<div class="w-full flex flex-row space-x-5">
+					<div id="left">
+						<h1 class="text-4xl text-red-700 font-bold mb-4 hover:text-red-650">
 						Welcome to the Co-Admin Dashboard</h1>
-					<div class="flex justify-around w-full mb-6">
+						<div class="flex justify-around w-full mb-6">
 						<!-- Total Hotels -->
 						<div class="bg-gray-200 rounded-lg p-4 flex flex-col">
 							<p class="text-xl font-bold text-red-500">Booked Rooms</p>
@@ -122,6 +134,46 @@
 								0</p>
 						</div>
 					</div>
+					</div>
+					<div id="right" class="w-2/5 rounded-lg p-5 border border-red-500">
+        				<button id="openModalButton" class="bg-red-500 w-full h-full text-white py-2 px-4 rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500">Open Business Profile Form</button>
+					</div>
+				</div>
+					
+
+    <!-- Modal structure -->
+    <div id="modal" class="modal fixed inset-1 items-center justify-center bg-gray-900 bg-opacity-50">
+        <div class="w-[450px] mx-auto p-6 bg-white rounded-lg shadow-md relative">
+            <button id="closeModalButton" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+                &times;
+            </button>
+            <h1 class="text-2xl font-semibold mb-4 text-center">Create Business Profile</h1>
+            <form action="/createBusinessProfile" method="post">
+				<input type="hidden" id="coadminId" name="coadminId" required> 
+            
+                <div class="mb-4">
+                    <label for="businessName" class="block text-gray-700 text-sm font-bold mb-2">Business Name:</label>
+                    <input type="text" id="businessName" name="businessName" required 
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div class="mb-4">
+                    <label for="location" class="block text-gray-700 text-sm font-bold mb-2">Location:</label>
+                    <input type="text" id="location" name="location" required 
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div class="mb-4">
+                    <label for="description" class="block text-gray-700 text-sm font-bold mb-2">Description:</label>
+                    <textarea id="description" name="description" rows="4"
+                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                </div>
+                <div class="flex items-center justify-center">
+                    <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+
 					<div class="flex">
 						<!-- Room Table -->
 						<div class="overflow-x-auto w-full mb-4 space-y-2">
@@ -217,6 +269,9 @@
 						</div>
 					</div>
 				</section>
+				
+					</div>
+
 
 				<!-- Add Product Container -->
 				<section id="addProduct"
@@ -890,6 +945,26 @@
 	    }
 	});
 
+    document.addEventListener('DOMContentLoaded', function () {
+        const openModalButton = document.getElementById('openModalButton');
+        const modal = document.getElementById('modal');
+        const closeModalButton = document.getElementById('closeModalButton');
+
+        openModalButton.addEventListener('click', function () {
+            modal.classList.add('active');
+        });
+
+        closeModalButton.addEventListener('click', function () {
+            modal.classList.remove('active');
+        });
+
+        // Close the modal if the user clicks outside the modal content
+        window.addEventListener('click', function (event) {
+            if (event.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+    });
     </script>
 </body>
 </html>

@@ -43,8 +43,8 @@
             <div class="mb-4">
                 <label for="role" class="block text-sm font-medium text-gray-700">Select Role</label>
                 <select name="role" id="role" class="w-full mt-1 p-3 border border-gray-300 rounded focus:ring-teal-500 focus:border-teal-500" onchange="toggleActivationCode()" required>
-                    <option value="Customer">Customer</option>
-                    <option value="Coadmin">Co-admin</option>
+                    <option value="customer">Customer</option>
+                    <option value="coadmin">Co-admin</option>
                 </select>
 
                 <!-- Activation Code (hidden by default) -->
@@ -135,7 +135,7 @@
             const usernameOrBusinessNameInput = document.getElementById('usernameOrBusinessName');
             const usernameOrBusinessNameLabel = document.getElementById('usernameOrBusinessNameLabel');
 
-            if (roleSelect.value === 'Coadmin') {
+            if (roleSelect.value === 'coadmin') {
                 activationCodeContainer.classList.remove('hidden');
                 usernameOrBusinessNameInput.placeholder = 'Enter your business name';
                 usernameOrBusinessNameLabel.textContent = 'Business Name';
