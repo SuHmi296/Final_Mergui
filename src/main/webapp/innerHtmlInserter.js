@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <li><a href="destination.html" class="hover:text-red-500 transition">Destination</a></li>
         <li><a href="hotelNameOutput.jsp" class="hover:text-red-500 transition">Accommodation</a></li>
         <li><a href="restaurant.html" class="hover:text-red-500 transition">Restaurants</a></li>
-        <li><a href="#" class="hover:text-red-500 transition">Transportation</a></li>
+        <li><a href="transportation.html" class="hover:text-red-500 transition">Transportation</a></li>
         <li><a href="contactus.html" class="hover:text-red-500 transition">Contact Us</a></li>
       </ul>
       <div class="flex space-x-2 items-center">
@@ -79,7 +79,9 @@ document.addEventListener('DOMContentLoaded', function() {
 // Update the footer inner HTML
 const footerInnerHtml = `
     <div>
-        <button class="bg-red-700 text-white py-3 px-6 rounded-full w-full">Register for newsletter</button>
+	<a href="index.html">
+	          <img src="./Images/lg.png" alt="Logo" class="w-32 sm:w-40 md:w-48 lg:w-56 h-auto">
+	        </a>
     </div>
     <div class="flex space-x-10 w-full items-start justify-around">
         <div class="w-1/3 flex flex-col space-y-4">

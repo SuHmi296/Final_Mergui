@@ -17,7 +17,7 @@
         }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-gray-100 ">
 <!-- navbar -->
 	<nav
       id="navContainer"
@@ -26,8 +26,8 @@
     
     <div class="container mx-auto p-6">
 <div class="w-full md:w-1/2 bg-white shadow-lg rounded-lg p-4">
-            <h1 class="text-2xl font-bold mb-4">Accommodation Name<c/h1>
-            <ul class="list-disc pl-5">
+            <h1 class="text-3xl font-bold mb-4 text-red-700 ">Accommodation Name<c/h1>
+            <ul class="list-disc pl-5 space-y-4">
                 <%
                     String hotelDBURL = "jdbc:mysql://localhost:3306/mergui";
                     String hotelUser = "root";
@@ -48,7 +48,7 @@
                             %>
                            <li class="flex items-center">
                             <i class="fas fa-building mr-2 text-red-500"></i>
-                                <a href="hotels.jsp?h_id=<%= id %>" class="text-blue-500 hover:underline"><%= name %></a>
+                                <a href="accomodation.html?h_id=<%= id %>" class="text-xl text-red-700 hover:underline hover:text-red-600"><%= name %></a>
                             </li>
                             <%
                         }

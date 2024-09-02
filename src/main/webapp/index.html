@@ -11,7 +11,8 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"
 	crossorigin="anonymous"></script>
 <script src="logout.js"></script>
-
+<link rel="stylesheet" href="weather.css">
+   <script type="text/javascript" src="weather.js"></script>
 </head>
 
 <body class="bg-gray-100 font-sans">
@@ -19,10 +20,36 @@
 	<nav id="navContainer"
 		class="z-50 flex justify-between items-center p-1 px-20 sticky top-0 bg-white backdrop-blur-md"></nav>
 
-	<!-- Hero Section -->
-	<div class="h-screen bg-cover bg-center"
-		style="background-image: url('./Images/backgroundimg.jpg')">
-		&nbsp;</div>
+	<!-- Hero Section with Weather Overlay -->
+<div class="relative h-screen bg-cover bg-center shadow-md"
+    style="background-image: url('./Images/backgroundimg.jpg')">
+    
+    <!-- Weather Section -->
+    <section class="absolute bottom-20 left-8 p-6 rounded-lg max-w-6xl text-red-700 ">
+        <div class="weather-container bg-white bg-opacity-75">
+            <div>
+                <div class="temperature text-6xl text-red-700 font-bold mb-2">Loading...</div>
+                <div class="date-time text-lg">
+                    <span id="day" class="block">Loading...</span>
+                    <span id="time" class="block">Loading...</span>
+                </div>
+            </div>
+            <div class="weather-info mt-4 flex items-center">
+                <div class="status text-xl font-semibold">Loading...</div>
+                <div class="icon ml-4">
+                    <img id="weather-icon" src="" alt="Weather Icon" class="w-16 h-16" />
+                </div>
+            </div>
+            <div class="forecast mt-6">
+                <h2 class="text-2xl font-bold mb-4">5-Day Forecast</h2>
+                <div class="forecast-cards grid grid-cols-1 gap-4" id="forecast-cards">
+                    <!-- Forecast Cards will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
 
 
 	<!-- Secondary Navbar for Bookings -->
@@ -40,18 +67,17 @@
 
 	<!-- Hotel Booking Form -->
 	<!-- Hotel Booking Section -->
-	<div
-		class="max-w-7xl mx-auto p-6 flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0 md:space-x-8">
-
+<div class="max-w-7xl mx-auto p-6 space-y-6 md:space-y-0  flex flex-col md:flex-row mb-10">
+	
 		<!-- Booking Form -->
 		<div id="bookingForm"
-			class="bg-white p-6 rounded-lg shadow-md w-full md:w-1/2">
-			<form class="space-y-4">
+			class="bg-white p-8 rounded-lg shadow-md w-full md:w-1/2">
+			<form class="space-y-8">
 				<!-- Hotel Name -->
 				<div>
 					<label for="hotelName" class="block font-semibold text-gray-800">Hotel
 						Name:</label> <input type="text" id="hotelName" name="hotelName"
-						class="w-full p-2 border border-gray-300 rounded mt-1"
+						class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-300"
 						placeholder="Enter hotel name" required />
 				</div>
 
@@ -138,9 +164,159 @@
 			</form>
 		</div>
 
-		<!-- Photo and Content Section -->
-		<div
-			class="bg-white p-6 rounded-lg shadow-md w-full md:w-1/2 flex flex-col">
+
+	
+
+	<!-- Restaurant Booking -->
+<div class="max-w-7xl mx-auto p-6 space-y-6 md:space-y-0  flex flex-col md:flex-row mb-10">
+		<div id="bookingRestaurant"
+			class="bg-white p-8 rounded-lg shadow-md w-full">
+
+			<form class="space-y-8">
+				<div>
+					<label for="restaurantName" class="block font-semibold text-red-700">Restaurant
+						Name:</label> <input type="text" id="restaurantName" name="restaurantName"
+						placeholder="Enter restaurant name" required
+						class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-1 focus:ring-red-700 transition duration-300" />
+				</div>
+				<!-- Event Type Dropdown -->
+				<div>
+					<label for="eventType" class="block font-semibold">Event
+						Type:</label> <select id="eventType" name="eventType"
+						class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-1 focus:ring-red-700 transition duration-300">
+						<option value="birthday">Birthday</option>
+						<option value="anniversary">Anniversary</option>
+						<option value="business">Business Meeting</option>
+						<option value="wedding">Wedding</option>
+						<option value="other">Other</option>
+					</select>
+				</div>
+
+				<div class="grid grid-cols-2 gap-4">
+					<div>
+						<label for="arrivalDate" class="block font-semibold">Event
+							Date (optional):</label> <input type="date" id="arrivalDate"
+							name="arrivalDate"
+							class="w-full p-2 border border-gray-300 rounded mt-1" />
+					</div>
+					<div>
+						<label for="arrivalTime" class="block font-semibold">Event
+							Time:</label> <input type="time" id="arrivalTime" name="arrivalTime"
+							class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-1 focus:ring-red-700 transition duration-300" />
+					</div>
+				</div>
+
+				<div>
+					<label for="phone" class="block font-semibold">Phone no:</label> <input
+						type="text" id="phone" name="phone" placeholder="Enter phone no"
+						required
+						class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-1 focus:ring-red-700 transition duration-300" />
+				</div>
+				<div class="grid grid-cols-2 gap-4">
+					<div>
+						<label for="guests" class="block font-semibold">Guests:</label> <input
+							type="text" id="guests" name="guests"
+							placeholder="Enter number of guests" required
+							class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-1 focus:ring-red-700 transition duration-300" />
+					</div>
+					<div>
+						<label for="tables" class="block font-semibold">Number of
+							Tables:</label> <select id="tables" name="tables"
+							class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-1 focus:ring-red-700 transition duration-300">
+							<option value="1">1 Table</option>
+							<option value="2">2 Tables</option>
+							<option value="3">3 Tables</option>
+							<option value="4">4 Tables</option>
+							<option value="5">5 Tables</option>
+						</select>
+					</div>
+				</div>
+				<div>
+					<button type="submit"
+						class="w-full bg-red-700 text-white p-2 rounded mt-4 hover:bg-red-500 transition">Submit
+						Booking</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+	
+	<div class="max-w-7xl mx-auto p-6 space-y-6 md:space-y-0  flex flex-col md:flex-row mb-10">
+	
+<!-- Taxi Booking -->
+		<div id="bookingTaxi"
+			class="bg-white p-8 rounded-lg shadow-md w-full">
+			<form class="space-y-8">
+				<div>
+					<label for="taxiNo" class="block font-semibold">Taxi No:</label> <input
+						type="text" id="taxiName" name="taxiName"
+						placeholder="Enter taxi name" required
+						class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-1 focus:ring-blue-500 transition duration-300" />
+				</div>
+				<div>
+					<label for="taxiName" class="block font-semibold">Driver
+						Name:</label> <input type="text" id="taxiName" name="taxiName"
+						placeholder="Enter taxi name" required
+						class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-1 focus:ring-blue-500 transition duration-300" />
+				</div>
+				<div class="grid grid-cols-2 gap-4">
+					<div>
+						<label for="arrivalDate" class="block font-semibold">Order
+							Date (optional):</label> <input type="date" id="arrivalDate"
+							name="arrivalDate"
+							class="w-full p-2 border border-gray-300 rounded mt-1" />
+					</div>
+					<div>
+						<label for="arrivalTime" class="block font-semibold">Order
+							Time:</label> <input type="time" id="arrivalTime" name="arrivalTime"
+							class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-1 focus:ring-red-500 transition duration-300" />
+					</div>
+				</div>
+				<div>
+					<label for="phone" class="block font-semibold">Phone no:</label> <input
+						type="text" id="phone" name="phone" placeholder="Enter phone no"
+						required
+						class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-1 focus:ring-blue-500 transition duration-300" />
+				</div>
+				<div>
+					<label for="guests" class="block font-semibold">Number of
+						Guests:</label> <input type="text" id="guests" name="guests"
+						placeholder="Enter number of guests" required
+						class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-1 focus:ring-blue-500 transition duration-300" />
+				</div>
+				<div class="grid grid-cols-2 gap-4">
+					<div>
+						<label for="taxi" class="block font-semibold">Taxi type:</label> <select
+							id="taxi" name="taxi"
+							class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-1 focus:ring-blue-500 transition duration-300">
+							<option value="1">Motorcycle</option>
+							<option value="2">A tricycle</option>
+							<option value="3">Mini Truck</option>
+						</select>
+					</div>
+					<div>
+						<label for="room" class="block font-semibold">Taxi:</label> <select
+							id="room" name="room"
+							class="w-full p-2 border border-gray-300 rounded mt-1">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+						</select>
+					</div>
+				</div>
+				<div>
+					<button type="submit"
+						class="w-full bg-red-700 text-white p-2 rounded mt-4 hover:bg-red-500 transition">Find
+						Booking</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<!-- Photo and Content Section -->
+		 <div class="bg-white p-8 rounded-lg shadow-md w-full md:w-1/2 flex flex-col">
 			<!-- Photo -->
 			<img src="./Images/edp.jpg" alt="Hotel Photo"
 				class="w-full h-64 object-cover rounded-lg mb-6">
@@ -171,189 +347,41 @@
 					class="w-64 h-48 object-cover rounded">
 			</div>
 		</div>
-
-	</div>
-
-	<!-- Restaurant Booking -->
-	<div
-		class="flex justify-between items-center md:w-1/3 max-w-7xl mx-auto p-6">
-		<div id="bookingRestaurant"
-			class="p-6 bg-white shadow-lg rounded-lg max-w-lg mx-auto mt-8">
-
-			<form class="space-y-4">
-				<div>
-					<label for="restaurantName" class="block font-semibold">Restaurant
-						Name:</label> <input type="text" id="restaurantName" name="restaurantName"
-						placeholder="Enter restaurant name" required
-						class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-300" />
-				</div>
-				<!-- Event Type Dropdown -->
-				<div>
-					<label for="eventType" class="block font-semibold">Event
-						Type:</label> <select id="eventType" name="eventType"
-						class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-300">
-						<option value="birthday">Birthday</option>
-						<option value="anniversary">Anniversary</option>
-						<option value="business">Business Meeting</option>
-						<option value="wedding">Wedding</option>
-						<option value="other">Other</option>
-					</select>
-				</div>
-
-				<div class="grid grid-cols-2 gap-4">
-					<div>
-						<label for="arrivalDate" class="block font-semibold">Event
-							Date (optional):</label> <input type="date" id="arrivalDate"
-							name="arrivalDate"
-							class="w-full p-2 border border-gray-300 rounded mt-1" />
-					</div>
-					<div>
-						<label for="arrivalTime" class="block font-semibold">Event
-							Time:</label> <input type="time" id="arrivalTime" name="arrivalTime"
-							class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-300" />
-					</div>
-				</div>
-
-				<div>
-					<label for="phone" class="block font-semibold">Phone no:</label> <input
-						type="text" id="phone" name="phone" placeholder="Enter phone no"
-						required
-						class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-300" />
-				</div>
-				<div class="grid grid-cols-2 gap-4">
-					<div>
-						<label for="guests" class="block font-semibold">Guests:</label> <input
-							type="text" id="guests" name="guests"
-							placeholder="Enter number of guests" required
-							class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-300" />
-					</div>
-					<div>
-						<label for="tables" class="block font-semibold">Number of
-							Tables:</label> <select id="tables" name="tables"
-							class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-300">
-							<option value="1">1 Table</option>
-							<option value="2">2 Tables</option>
-							<option value="3">3 Tables</option>
-							<option value="4">4 Tables</option>
-							<option value="5">5 Tables</option>
-						</select>
-					</div>
-				</div>
-				<div>
-					<button type="submit"
-						class="w-full bg-red-700 text-white p-2 rounded mt-4 hover:bg-red-500 transition">Submit
-						Booking</button>
-				</div>
-			</form>
-		</div>
 	</div>
 
 
-	<!-- Taxi Booking -->
-	<div class="flex justify-between items-center max-w-7xl mx-auto p-6">
-		<div id="bookingTaxi"
-			class="bg-white p-6 rounded-lg shadow-lg max-w-md mx-auto">
-			<form class="space-y-4">
-				<div>
-					<label for="taxiNo" class="block font-semibold">Taxi No:</label> <input
-						type="text" id="taxiName" name="taxiName"
-						placeholder="Enter taxi name" required
-						class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300" />
-				</div>
-				<div>
-					<label for="taxiName" class="block font-semibold">Driver
-						Name:</label> <input type="text" id="taxiName" name="taxiName"
-						placeholder="Enter taxi name" required
-						class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300" />
-				</div>
-				<div class="grid grid-cols-2 gap-4">
-					<div>
-						<label for="arrivalDate" class="block font-semibold">Order
-							Date (optional):</label> <input type="date" id="arrivalDate"
-							name="arrivalDate"
-							class="w-full p-2 border border-gray-300 rounded mt-1" />
-					</div>
-					<div>
-						<label for="arrivalTime" class="block font-semibold">Order
-							Time:</label> <input type="time" id="arrivalTime" name="arrivalTime"
-							class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-300" />
-					</div>
-				</div>
-				<div>
-					<label for="phone" class="block font-semibold">Phone no:</label> <input
-						type="text" id="phone" name="phone" placeholder="Enter phone no"
-						required
-						class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300" />
-				</div>
-				<div>
-					<label for="guests" class="block font-semibold">Number of
-						Guests:</label> <input type="text" id="guests" name="guests"
-						placeholder="Enter number of guests" required
-						class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300" />
-				</div>
-				<div class="grid grid-cols-2 gap-4">
-					<div>
-						<label for="taxi" class="block font-semibold">Taxi type:</label> <select
-							id="taxi" name="taxi"
-							class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300">
-							<option value="1">Motorcycle</option>
-							<option value="2">A tricycle</option>
-							<option value="3">Mini Truck</option>
-						</select>
-					</div>
-					<div>
-						<label for="room" class="block font-semibold">Taxi:</label> <select
-							id="room" name="room"
-							class="w-full p-2 border border-gray-300 rounded mt-1">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-						</select>
-					</div>
-				</div>
-				<div>
-					<button type="submit"
-						class="w-full bg-red-700 text-white p-2 rounded mt-4 hover:bg-red-500 transition">Find
-						Booking</button>
-				</div>
-			</form>
-		</div>
-	</div>
-
-
-	<div class="max-w-7xl mx-auto  mb-6">
+<div class="max-w-7xl mx-auto mb-6 shadow-lg">
     <div class="relative rounded-lg overflow-hidden shadow-lg">
         <img
             src="./Images/att.jpg"
             class="w-full h-[500px] object-cover transition-transform duration-300 ease-in-out transform hover:scale-105"
         />
-        <div
-            class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-75"
-        ></div>
-        <div class="absolute bottom-6 left-6 p-6 space-y-4 bg-opacity-75 backdrop-blur-md border border-white border-opacity-50 rounded-lg">
-    <p class="text-sm uppercase tracking-wider text-white">Top Attractions</p>
-    <h1 class="text-4xl text-red-700 font-bold">Famous Islands</h1>
-    <p class="text-sm text-white">
+        <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+        <div class="absolute bottom-8 left-12 right-12 p-6 space-y-8 shadow-md bg-white rounded-lg">
+    <h1 class="text-3xl text-red-700 font-bold mb-2">Famous Islands</h1>
+    <p class="text-gray-700 text-m mb-4">
         Experience the roar and vibration of the mighty Rhine Falls, Europe's largest waterfall, and explore castles, the Rhine Falls Basin, and more by ship.
     </p>
+    <button class="text-red-700 font-semibold hover:text-white hover:bg-red-700 border border-red-700 rounded px-4 py-2 transition">
+        Read More
+    </button>
 </div>
 
     </div>
 </div>
 
 
-	<div class="container max-w-7xl mx-auto p-6">
+
+	<div class="container max-w-7xl mx-auto p-6 mt-10">
 		<!-- Flexbox Container -->
 		<div class="flex flex-wrap items-center flex-row">
 			<!-- Text Section -->
-			<div class="w-full md:w-1/2 mb-4 md:mb-0">
-				<h1 class="text-6xl font-bold text-gray-900">Discover</h1>
-				<h1 class="text-6xl font-bold text-gray-900">Switzerland now!</h1>
+			<div class="w-full md:w-1/2 mb-4 md:mb-0 space-y-4">
+				<h1 class="text-6xl font-bold text-red-700">Discover</h1>
+				<h1 class="text-6xl font-bold text-gray-900">Your Choice now!</h1>
 			</div>
 
-			<!-- Image Section -->
+			<!--<!-- Image Section -->
 			<div class="w-full md:w-1/2">
 				<div class="relative">
 					<img
@@ -364,6 +392,38 @@
 						Sustainability</div>
 				</div>
 			</div>
+		</div>	
+		
+		
+		<div class="container max-w-7xl mx-auto p-6 mt-10">
+    <!-- Flexbox Container -->
+    <div class="flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-12">
+        <!-- Text Section -->
+        <div class="w-full md:w-1/2 text-center md:text-left">
+            <h1 class="text-6xl font-extrabold text-gray-900 leading-tight">
+                <span class="text-red-700">Discover</span> <br> Your Choice now!
+            </h1>
+            <p class="mt-4 text-lg text-gray-600">
+                Explore the best destinations, accommodations, restaurants, and more.
+            </p>
+        </div>
+
+        <!-- Search Box Section -->
+        <div class="w-full md:w-1/2 flex justify-center md:justify-end">
+            <div class="flex items-center w-full max-w-lg shadow-lg rounded-lg overflow-hidden">
+                <input
+                    type="text"
+                    placeholder="Search for destinations, hotels, restaurants..."
+                    class="flex-grow px-6 py-4 text-gray-700 focus:outline-none"
+                />
+                <button class="bg-white text-white px-6 py-4 hover:bg-red-500 focus:outline-none">
+                    <svg width="25px" height="25px" viewBox="0 -0.5 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>search_left [#1504]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-299.000000, -280.000000)" fill="#b8162a"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M264,138.586 L262.5153,140 L258.06015,135.758 L259.54485,134.343 L264,138.586 Z M251.4,134 C247.9266,134 245.1,131.309 245.1,128 C245.1,124.692 247.9266,122 251.4,122 C254.8734,122 257.7,124.692 257.7,128 C257.7,131.309 254.8734,134 251.4,134 L251.4,134 Z M251.4,120 C246.7611,120 243,123.582 243,128 C243,132.418 246.7611,136 251.4,136 C256.0389,136 259.8,132.418 259.8,128 C259.8,123.582 256.0389,120 251.4,120 L251.4,120 Z" id="search_left-[#1504]"> </path> </g> </g> </g> </g></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+			
 		</div>
 	</div>
 
@@ -605,26 +665,39 @@
 			</div>
 		</div>
 
-		<!-- Newsletter Section -->
+		<!-- Contact Us Section -->
 		<div
 			class="newsletter-section bg-cover bg-center p-10 mt-10 rounded-lg text-white max-w-7xl mx-auto p-6"
 			style="background-image: url('')">
 			<div
-				class="w-full mx-auto text-center bg-gray-300 bg-opacity-75 p-6 rounded-lg">
-				<h2 class="text-red-700 text-3xl font-bold">Newsletter</h2>
+				class="w-full mx-auto text-center bg-gray-200 bg-opacity-75 p-6 rounded-lg">
+				<h2 class="text-red-700 text-3xl font-bold">Contact Us</h2>
 				<p class="mt-4 text-gray-600">The monthly newsletter offers the
 					best tips and key information about Switzerland as a travel
 					destination, ensuring your perfect holiday.</p>
-				<button
-					class="mt-6 bg-red-700 hover:bg-red-500 text-white py-2 px-6 rounded-full">
-					Subscribe now!</button>
+				<a href="contactus.html"><button
+					class="mt-6 bg-red-700 hover:bg-red-600 text-white py-2 px-6 rounded-full">
+					Send Message now!</button></a>
 			</div>
 		</div>
 	</div>
 
+
+<!-- SVG Line Divider with Squares -->
+<div class="flex justify-center my-10">
+    <svg height="40" width="100%" class="max-w-7xl">
+        <line x1="0" y1="20" x2="100%" y2="20" style="stroke:#b8162a;stroke-width:2" />
+        <rect x="49%" y="14" width="12" height="12" fill="#b8162a" />
+        <rect x="44%" y="16" width="8" height="8" fill="#b8162a" />
+        <rect x="55%" y="16" width="8" height="8" fill="#b8162a" />
+    </svg>
+</div>
+
+
+
 	<!--footer-->
 	<footer id="footerContainer"
-		class="flex flex-col items-center justify-center space-y-10 w-s4/5 max-w-7xl hover:bg-[#fafafa] hover:text-red-700 mx-auto"></footer>
+		class="flex flex-col items-center justify-center space-y-10 w-s4/5 max-w-7xl hover:text-red-700 mx-auto"></footer>
 
 	<script src="./indexDataInserter.js"></script>
 	<script src="./innerHtmlInserter.js"></script>

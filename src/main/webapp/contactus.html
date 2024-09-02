@@ -6,58 +6,56 @@
     <title>Transportation Services</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
 </head>
-<body class="font-sans antialiased bg-gray-100">
+<body class="bg-gray-100 font-sans">
+	<!-- Navbar -->
+	<nav id="navContainer"
+		class="z-50 flex justify-between items-center p-1 px-20 sticky top-0 bg-white backdrop-blur-md"></nav>
 
-    <!-- Header -->
-    <header class="bg-cover bg-center h-64 flex items-center justify-center" style="background-image: url('./image/t7.jpg')">
-        <div class="text-center text-white">
-            <h1 class="text-4xl font-bold">Reliable Transportation Services</h1>
-            <p class="mt-4 max-w-xl mx-auto">Your journey starts with us.</p>
-            <a href="#services" class="mt-6 inline-block bg-red-700 text-white py-2 px-6 rounded">Book Now</a>
+    <header class="relative bg-cover bg-center h-screen" style="background-image: url('./Images/contactus.jpg');">
+        <div class="absolute inset-0"></div>
+        <div class="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-6">
+            <h1 class="text-5xl font-bold hover:text-red-700">Contact Information</h1>
+            <p class="mt-4 text-lg max-w-xl">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <a href="#contact-form" class="mt-8 bg-white text-red-700 text-xl font-semibold py-3 px-8 rounded-full shadow-md hover:bg-gray-200 transition">Contact Us</a>
         </div>
     </header>
 
-    <!-- Services Section -->
-    <section id="services" class="py-16 bg-gray-50">
-        <div class="container mx-auto max-w-7xl px-4">
-            <h2 class="text-4xl font-bold text-center text-red-700 mb-12">Our Services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-lg shadow text-center">
-                    <h3 class="text-2xl font-semibold mb-4">City Rides</h3>
-                    <p class="text-gray-600">Quick and reliable rides across the city.</p>
+    <section id="contact-form" class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-8 md:grid-cols-2">
+            <div>
+                <div class="bg-white p-6 rounded-lg shadow-lg mb-6 text-center">
+                    <i class="fas fa-phone text-red-700 text-3xl mb-4"></i>
+                    <h4 class="text-xl font-semibold mb-2">Phone Number</h4>
+                    <p>+959 422 540 391</p>
                 </div>
-                <div class="bg-white p-8 rounded-lg shadow text-center">
-                    <h3 class="text-2xl font-semibold mb-4">Airport Transfers</h3>
-                    <p class="text-gray-600">Timely pickups and drop-offs at all major airports.</p>
+                <div class="bg-white p-6 rounded-lg shadow-lg mb-6 text-center">
+                    <i class="fas fa-envelope text-red-700 text-3xl mb-4"></i>
+                    <h4 class="text-xl font-semibold mb-2">Email Address</h4>
+                    <p>merguiwebsite@gmail.com</p>
                 </div>
-                <div class="bg-white p-8 rounded-lg shadow text-center">
-                    <h3 class="text-2xl font-semibold mb-4">Long Distance</h3>
-                    <p class="text-gray-600">Comfortable long-distance rides at affordable prices.</p>
+                <div class="bg-white p-6 rounded-lg shadow-lg mb-6 text-center">
+                    <i class="fas fa-fax text-red-700 text-3xl mb-4"></i>
+                    <h4 class="text-xl font-semibold mb-2">Fax Address</h4>
+                    <p>+0123 4567 9876</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg mb-6 text-center">
+                    <i class="fas fa-map-marker-alt text-red-700 text-3xl mb-4"></i>
+                    <h4 class="text-xl font-semibold mb-2">Location</h4>
+                    <p>Myeik, Tanintharyi, Myanmar.</p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-16 bg-white">
-        <div class="container mx-auto max-w-7xl px-4">
-            <h2 class="text-4xl font-bold text-center text-red-700 mb-12">About Us</h2>
-            <p class="text-lg text-gray-700 max-w-3xl mx-auto text-center">
-                We are a leading transportation service provider with years of experience in providing top-notch travel solutions.
-            </p>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-gray-50">
-        <div class="container mx-auto max-w-7xl px-4">
-            <h2 class="text-4xl font-bold text-center text-red-700 mb-12">Contact Us</h2>
-            <form class="space-y-6 max-w-lg mx-auto bg-white p-8 rounded-lg shadow">
-                <input type="text" placeholder="Your Name" required class="w-full p-3 border rounded border-gray-300 focus:ring-2 focus:ring-red-700" />
-                <input type="email" placeholder="Your Email" required class="w-full p-3 border rounded border-gray-300 focus:ring-2 focus:ring-red-700" />
-                <textarea placeholder="Your Message" required class="w-full p-3 border rounded border-gray-300 focus:ring-2 focus:ring-red-700 h-32"></textarea>
-                <button type="submit" class="w-full bg-red-700 text-white py-3 rounded">Send Message</button>
-            </form>
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <h2 class="text-2xl font-semibold mb-6 text-red-700">Send Message</h2>
+                <form>
+                    <input type="text" name="name" placeholder="Your name" required class="w-full mb-4 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-700">
+                    <input type="email" name="email" placeholder="Email address" required class="w-full mb-4 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-700">
+                    <input type="text" name="phone" placeholder="Phone number" required class="w-full mb-4 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-700">
+                    <input type="text" name="subject" placeholder="Subject" required class="w-full mb-4 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-700">
+                    <textarea name="message" placeholder="Message" required class="w-full mb-4 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-red-700 h-32 resize-none"></textarea>
+                    <button type="submit" class="w-full bg-red-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-red-800 transition">Send Message</button>
+                </form>
+            </div>
         </div>
     </section>
 
@@ -75,12 +73,14 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-4">
-        <div class="container mx-auto text-center">
-            <p>&copy; 2024 Transportation Services. All rights reserved.</p>
-        </div>
-    </footer>
+  <!--footer-->
+	<footer id="footerContainer"
+		class="flex flex-col items-center justify-center space-y-10 w-s4/5 max-w-7xl hover:bg-[#fafafa] hover:text-red-700 mx-auto"></footer>
+
+	<script src="./indexDataInserter.js"></script>
+	<script src="./innerHtmlInserter.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+	<script src="2.js"></script>
 
 </body>
 </html>

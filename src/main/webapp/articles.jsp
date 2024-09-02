@@ -32,7 +32,7 @@
                 <div class="p-4">
                     <h2 class="text-xl font-bold mb-2"><%= article.getTitle() %></h2>
                     <p class="text-gray-600 mb-4"><%= article.getContent() %></p>
-                    <a href="#" class="text-red-600 font-bold hover:underline">Learn more &rarr;</a>
+                    <a href="#" class="text-red-600 font-bold hover:underline">Read more &rarr;</a>
                 </div>
             </div>
         </a>
